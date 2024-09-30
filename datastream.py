@@ -913,8 +913,6 @@ def train_automaton(resultBean, dataLoader, device, loss_alpha_param, loss_beta_
   n_nan_batches = 0
   try:
     for idx_number, batch in tqdm(enumerate(dataLoader.iter()), total=number_of_batch):
-      if idx_number > 2:
-        continue
       model.eval()
       users = torch.LongTensor(batch[0]).to(device)
       pos_items = torch.LongTensor(batch[1]).to(device)
